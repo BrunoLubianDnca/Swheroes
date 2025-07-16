@@ -1,159 +1,732 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seja um Patrocinador - SW Blumenau 2025</title>
-  <meta name="description" content="Apoie o maior evento de inovação e empreendedorismo de Blumenau e associe sua marca ao futuro.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seja Patrocinador - SW Blumenau 2025</title>
+    <meta name="description" content="Sua marca junto de quem constrói o futuro da inovação em Blumenau. Seja patrocinador do Startup Weekend Blumenau 2025 - Heroes Edition.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Animações e estilos adicionais */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .slide-in {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideIn 1s forwards;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .number-counter {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-accent-primary);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .benefit-card {
+            background: var(--gradient-surface);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-accent-highlight);
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-xl) 0;
+        }
+
+        .stat-card {
+            background: var(--color-surface);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+            background: var(--gradient-accent);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: var(--spacing-sm);
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-card:hover .stat-number {
+            background: var(--color-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .timeline-patrocinio {
+            position: relative;
+            max-width: 800px;
+            margin: var(--spacing-xl) auto;
+        }
+
+        .timeline-item-patrocinio {
+            position: relative;
+            padding: var(--spacing-lg);
+            background: var(--color-surface);
+            border-radius: var(--border-radius-lg);
+            margin-bottom: var(--spacing-lg);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .timeline-item-patrocinio.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item-patrocinio::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            width: 20px;
+            height: 2px;
+            background: var(--color-accent-primary);
+        }
+
+        .timeline-item-patrocinio::after {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: calc(50% - 6px);
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--color-accent-highlight);
+        }
+
+        .cotas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .cota-card {
+            background: var(--color-surface);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .cota-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cota-diamond { border-color: #B9F2FF; }
+        .cota-gold { border-color: #FFD700; }
+        .cota-silver { border-color: #C0C0C0; }
+        .cota-bronze { border-color: #CD7F32; }
+
+        .cota-header {
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .cota-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-sm);
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cota-price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+        }
+
+        .cota-benefits {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .cota-benefits ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .cota-benefits li {
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-text-secondary);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .cota-benefits i {
+            color: var(--color-accent-highlight);
+            font-size: 1.2rem;
+        }
+
+        .btn-cota {
+            width: 100%;
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            .cotas-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Header/Navegação (Reutilizado do index.html) -->
-  <header class="header">
-    <nav class="nav-container">
-      <div class="nav-brand">
-        <h2>SW Blumenau</h2>
-      </div>
-      <ul class="nav-menu" id="nav-menu">
-        <li><a href="index.html#home">Home</a></li>
-        <li class="dropdown">
-            <a href="index.html#resumo-9" class="dropdown-toggle">9ª Edição <i class="fas fa-chevron-down"></i></a>
-            <ul class="dropdown-menu">
-                <li><a href="index.html#resumo-9">Destaques</a></li>
-                <li><a href="index.html#timeline-9">Linha do Tempo</a></li>
-                <li><a href="index.html#projetos-premiados-9">Projetos Premiados</a></li>
-                <li><a href="index.html#depoimentos">Depoimentos</a></li>
-                <li><a href="index.html#patrocinadores-9">Patrocinadores</a></li>
-                <li><a href="index.html#mentores-9">Mentores & Jurados</a></li>
-                <li><a href="index.html#equipe-9">Equipe</a></li>
-            </ul>
-        </li>
-        <li><a href="galeria.html">Galeria</a></li>
-        <li><a href="index.html#expectativa-10">10ª Edição</a></li>
-        <li><a href="seja-patrocinador.html">Seja Patrocinador</a></li>
-        <li><a href="index.html#contato">Contato</a></li>
-      </ul>
-      <div class="nav-toggle" id="nav-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <!-- Seção Principal "Seja Patrocinador" -->
-    <section id="seja-patrocinador-hero" class="hero-banner-wrapup" style="padding-top: 10rem; padding-bottom: 8rem;">
-      <div class="container">
-          <div class="hero-wrapup-content">
-              <h1 class="hero-wrapup-title">🚀 Apoie o maior evento de inovação e empreendedorismo de Blumenau</h1>
-              <p class="hero-wrapup-subtitle" style="max-width: 800px; margin: 1rem auto 0;">Startup Weekend Blumenau conecta empreendedores, desenvolvedores e criativos para transformar ideias em negócios. Seja protagonista dessa transformação apoiando o evento e sua comunidade.</p>
-          </div>
-      </div>
-    </section>
-
-    <!-- Seção de Benefícios e Formulário -->
-    <section id="patrocinador-form-section" class="section">
-        <div class="container">
-            <div class="patrocinador-content-grid">
-                <!-- Coluna de Benefícios -->
-                <div class="beneficios-col">
-                    <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
-                        <h2>Benefícios para patrocinadores</h2>
-                        <p>Ao apoiar o Startup Weekend, você não apenas ganha visibilidade, mas investe diretamente no futuro do nosso ecossistema.</p>
-                    </div>
-                    <ul class="beneficios-list">
-                        <li><i class="fas fa-check-circle"></i> <div><h4>Visibilidade de marca</h4><p>Exposição para um evento com grande alcance na cidade e na região.</p></div></li>
-                        <li><i class="fas fa-check-circle"></i> <div><h4>Conexão com talentos</h4><p>Contato direto com talentos e empreendedores do ecossistema.</p></div></li>
-                        <li><i class="fas fa-check-circle"></i> <div><h4>Reconhecimento como apoiador</h4><p>Associe sua marca à inovação e ao desenvolvimento local.</p></div></li>
-                        <li><i class="fas fa-check-circle"></i> <div><h4>Presença em materiais oficiais</h4><p>Seu logotipo no site, redes sociais e nos materiais do evento.</p></div></li>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <h2>SW Blumenau</h2>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="index.html#resumo-9" class="dropdown-toggle">9ª Edição <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#resumo-9">Destaques</a></li>
+                        <li><a href="index.html#timeline-9">Linha do Tempo</a></li>
+                        <li><a href="index.html#projetos-premiados-9">Projetos Premiados</a></li>
+                        <li><a href="index.html#depoimentos">Depoimentos</a></li>
+                        <li><a href="index.html#patrocinadores-9">Patrocinadores</a></li>
+                        <li><a href="index.html#mentores-9">Mentores & Jurados</a></li>
+                        <li><a href="index.html#equipe-9">Equipe</a></li>
                     </ul>
+                </li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="index.html#expectativa-10">10ª Edição</a></li>
+                <li><a href="seja-patrocinador.html" class="active">Seja Patrocinador</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="patrocinador-hero" class="hero-banner-wrapup section visible">
+            <div class="container">
+                <div class="hero-wrapup-content">
+                    <h1 class="hero-wrapup-title floating">
+                        Sua marca junto de quem constrói o futuro da inovação. 🚀
+                    </h1>
+                    <p class="hero-wrapup-subtitle pulse">
+                        Seja patrocinador do Startup Weekend Blumenau 2025 - Heroes Edition.
+                    </p>
                 </div>
+            </div>
+        </section>
 
-                <!-- Coluna do Formulário -->
-                <div class="form-col">
-                    <div class="form-wrapper">
-                        <h3>Pronto para impactar?</h3>
-                        <p>Preencha o formulário e nossa equipe entrará em contato com as cotas de patrocínio.</p>
-                        <form class="contato-form-geral" action="https://formsubmit.co/brunosocialcreator@gmail.com" method="POST">
-                            <!-- Configurações do FormSubmit -->
-                            <input type="hidden" name="_subject" value="SW Blumenau: Novo Interesse de Patrocínio!">
-                            <input type="hidden" name="_next" value="./obrigado.html">
-                            <input type="hidden" name="_captcha" value="false">
-
-                            <div class="form-group"><input type="text" name="nome" placeholder="Seu nome" required></div>
-                            <div class="form-group"><input type="email" name="email" placeholder="Seu e-mail" required></div>
-                            <div class="form-group"><input type="text" name="empresa" placeholder="Nome da Empresa" required></div>
-                            <div class="form-group"><input type="text" name="cargo" placeholder="Cargo (opcional)"></div>
-                            <div class="form-group"><textarea name="mensagem" placeholder="Mensagem / Observações" rows="3"></textarea></div>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Quero ser patrocinador</button>
-                        </form>
-                        <p class="contato-secundario">Ou fale conosco diretamente pelo e-mail: <a href="mailto:blumenausw@gmail.com">blumenausw@gmail.com</a></p>
+        <!-- Números de Impacto -->
+        <section class="section visible">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Impacto Real e Mensurável</h2>
+                    <p>Números que demonstram a força do Startup Weekend Blumenau</p>
+                </div>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-number" data-value="300">0</div>
+                        <p>Mil pessoas alcançadas</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-value="108">0</div>
+                        <p>Participantes por edição</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-value="14">0</div>
+                        <p>Cidades impactadas</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-value="9">0</div>
+                        <p>Edições de sucesso</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-  </main>
-  
-  <!-- Footer (Reutilizado do index.html) -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Startup Weekend Blumenau</h3>
-          <p>Conectando pessoas, ideias e oportunidades no ecossistema de inovação.</p>
-          <div class="footer-social">
-            <a href="https://www.instagram.com/swblumenau/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.linkedin.com/company/startup-weekend-blumenau" target="_blank"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="footer-section">
-          <h4>Links Rápidos</h4>
-          <ul>
-            <li><a href="index.html#resumo-9">9ª Edição</a></li>
-            <li><a href="galeria.html">Galeria</a></li>
-            <li><a href="index.html#expectativa-10">10ª Edição</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 Startup Weekend Blumenau. Todos os direitos reservados.</p>
-        <p>A 10ª edição está chegando – fique ligado! 🚀</p>
-      </div>
-    </div>
-  </footer>
+        </section>
 
-  <script>
-    // Script do menu (Reutilizado do index.html)
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    
-    navToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      navToggle.classList.toggle('active');
-    });
+        <!-- Benefícios -->
+        <section class="section visible section-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Benefícios para sua Marca</h2>
+                    <p>Vantagens exclusivas para nossos patrocinadores</p>
+                </div>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3>Visibilidade</h3>
+                        <p>Exposição da marca em todos os materiais oficiais e canais digitais</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Networking</h3>
+                        <p>Conexão direta com talentos, empreendedores e líderes do ecossistema</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Employer Branding</h3>
+                        <p>Fortalecimento da marca empregadora e atração de talentos</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Inovação</h3>
+                        <p>Contato com ideias inovadoras e soluções disruptivas</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Impacto Social</h3>
+                        <p>Contribuição direta para o desenvolvimento do ecossistema local</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Early Access</h3>
+                        <p>Acesso antecipado a startups e projetos inovadores</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    document.querySelectorAll('.dropdown-toggle').forEach(item => {
-        item.addEventListener('click', event => {
-            if (window.innerWidth <= 768) {
-              const dropdownMenu = item.nextElementSibling;
-              if (!dropdownMenu.classList.contains('active')) {
-                  event.preventDefault();
-                  document.querySelectorAll('.dropdown-menu.active').forEach(openMenu => {
-                      openMenu.classList.remove('active');
-                  });
-                  dropdownMenu.classList.add('active');
-              } else {
-                   dropdownMenu.classList.remove('active');
-              }
+        <!-- Timeline de Patrocínio -->
+        <section class="section visible">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Como Funciona o Patrocínio</h2>
+                    <p>Processo simplificado e transparente</p>
+                </div>
+                <div class="timeline-patrocinio">
+                    <div class="timeline-item-patrocinio">
+                        <h3>1. Escolha sua Cota</h3>
+                        <p>Selecione entre nossas cotas de patrocínio, cada uma com benefícios exclusivos.</p>
+                    </div>
+                    <div class="timeline-item-patrocinio">
+                        <h3>2. Alinhamento</h3>
+                        <p>Nossa equipe entrará em contato para alinhar detalhes e personalizar sua participação.</p>
+                    </div>
+                    <div class="timeline-item-patrocinio">
+                        <h3>3. Formalização</h3>
+                        <p>Processo simples de documentação e acordo de patrocínio.</p>
+                    </div>
+                    <div class="timeline-item-patrocinio">
+                        <h3>4. Ativação</h3>
+                        <p>Início imediato da exposição da sua marca e benefícios do patrocínio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cotas de Patrocínio -->
+        <section class="section visible section-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Cotas de Patrocínio</h2>
+                    <p>Escolha o plano que melhor se adequa à sua marca</p>
+                </div>
+                <div class="cotas-grid">
+                    <div class="cota-card cota-diamond">
+                        <div class="cota-header">
+                            <h3>Diamond</h3>
+                        </div>
+                        <div class="cota-benefits">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Logo em destaque em todos os materiais</li>
+                                <li><i class="fas fa-check"></i> Menção em todas as comunicações</li>
+                                <li><i class="fas fa-check"></i> Espaço para stand no evento</li>
+                                <li><i class="fas fa-check"></i> 5 inscrições cortesia</li>
+                                <li><i class="fas fa-check"></i> Participação na banca de jurados</li>
+                                <li><i class="fas fa-check"></i> Post exclusivo nas redes sociais</li>
+                                <li><i class="fas fa-check"></i> Pitch de 5 minutos no evento</li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-primary btn-cota">Quero ser Diamond</button>
+                    </div>
+                    <div class="cota-card cota-gold">
+                        <div class="cota-header">
+                            <h3>Gold</h3>                        </div>
+                        <div class="cota-benefits">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Logo em destaque em materiais selecionados</li>
+                                <li><i class="fas fa-check"></i> Menção em comunicações principais</li>
+                                <li><i class="fas fa-check"></i> 3 inscrições cortesia</li>
+                                <li><i class="fas fa-check"></i> Participação na banca de jurados</li>
+                                <li><i class="fas fa-check"></i> Post nas redes sociais</li>
+                                <li><i class="fas fa-check"></i> Pitch de 3 minutos no evento</li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-primary btn-cota">Quero ser Gold</button>
+                    </div>
+                    <div class="cota-card cota-silver">
+                        <div class="cota-header">
+                            <h3>Silver</h3>
+                        </div>
+                        <div class="cota-benefits">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Logo em materiais selecionados</li>
+                                <li><i class="fas fa-check"></i> 2 inscrições cortesia</li>
+                                <li><i class="fas fa-check"></i> Menção nas redes sociais</li>
+                                <li><i class="fas fa-check"></i> Pitch de 2 minutos no evento</li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-primary btn-cota">Quero ser Silver</button>
+                    </div>
+                    <div class="cota-card cota-bronze">
+                        <div class="cota-header">
+                            <h3>Bronze</h3>
+                        </div>
+                        <div class="cota-benefits">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Logo em materiais básicos</li>
+                                <li><i class="fas fa-check"></i> 1 inscrição cortesia</li>
+                                <li><i class="fas fa-check"></i> Menção nas redes sociais</li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-primary btn-cota">Quero ser Bronze</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulário de Contato -->
+        <section class="section visible">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Entre em Contato</h2>
+                    <p>Quer saber mais? Nossa equipe está pronta para atender você!</p>
+                </div>
+                <div class="patrocinador-content-grid">
+                    <div class="beneficios-list">
+                        <h3>Por que patrocinar o SW Blumenau?</h3>
+                        <ul>
+                            <li>
+                                <i class="fas fa-star"></i>
+                                <div>
+                                    <h4>Marca Fortalecida</h4>
+                                    <p>Associe sua marca a um dos maiores eventos de inovação do Sul do Brasil.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-handshake"></i>
+                                <div>
+                                    <h4>Networking Estratégico</h4>
+                                    <p>Conecte-se com empreendedores, mentores e líderes do ecossistema.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <h4>Atração de Talentos</h4>
+                                    <p>Acesso direto a profissionais altamente qualificados e empreendedores.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-rocket"></i>
+                                <div>
+                                    <h4>Inovação Aberta</h4>
+                                    <p>Oportunidade de identificar soluções inovadoras e potenciais parcerias.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="form-wrapper">
+                        <h3>Fale com a gente</h3>
+                        <p>Preencha o formulário e receba mais informações sobre como patrocinar.</p>
+                        <form class="patrocinador-form" action="https://formsubmit.co/brunosocialcreator@gmail.com" method="POST">
+                            <!-- FormSubmit settings -->
+                            <input type="hidden" name="_subject" value="SW Blumenau: Novo Interesse de Patrocinador!">
+                            <input type="hidden" name="_next" value="./obrigado.html">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="box">
+                            
+                            <div class="form-group">
+                                <input type="text" name="empresa" placeholder="Nome da Empresa" required
+                                       aria-label="Nome da Empresa">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="nome" placeholder="Seu nome" required
+                                       aria-label="Seu nome">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Seu email corporativo" required
+                                       aria-label="Seu email corporativo"
+                                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" name="telefone" placeholder="Telefone/WhatsApp" required
+                                       aria-label="Telefone ou WhatsApp"
+                                       pattern="[0-9\s\-\+\(\)]{10,}"
+                                       title="Por favor, insira um número de telefone válido">
+                            </div>
+                            <div class="form-group">
+                                <select name="cota_interesse" required aria-label="Selecione a cota de interesse">
+                                    <option value="">Selecione a cota de interesse</option>
+                                    <option value="diamond">Diamond - R$ 10.000</option>
+                                    <option value="gold">Gold - R$ 7.000</option>
+                                    <option value="silver">Silver - R$ 5.000</option>
+                                    <option value="bronze">Bronze - R$ 3.000</option>
+                                    <option value="personalizado">Quero uma proposta personalizada</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="mensagem" placeholder="Sua mensagem ou dúvidas" rows="4"
+                                          aria-label="Sua mensagem ou dúvidas"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Quero ser Patrocinador
+                            </button>
+                        </form>
+                        <div class="contato-secundario">
+                            <p>Prefere falar direto com alguém da equipe?<br>
+                            <a href="mailto:contato@swblumenau.com.br">contato@swblumenau.com.br</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Startup Weekend Blumenau</h3>
+                        <p>Conectando pessoas, ideias e oportunidades no ecossistema de inovação.</p>
+                        <div class="footer-social">
+                            <a href="https://www.instagram.com/swblumenau/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/swblumenau" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.linkedin.com/company/startup-weekend-blumenau" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Links Rápidos</h4>
+                        <ul>
+                            <li><a href="index.html#resumo-9">9ª Edição</a></li>
+                            <li><a href="galeria.html">Galeria</a></li>
+                            <li><a href="index.html#expectativa-10">10ª Edição</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Startup Weekend Blumenau. Todos os direitos reservados.</p>
+                    <p>A 10ª edição está chegando – fique ligado! 🚀</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Accessibility Controls -->
+        <div class="accessibility-controls">
+            <button id="increase-font" aria-label="Aumentar fonte"><i class="fas fa-font"></i>+</button>
+            <button id="decrease-font" aria-label="Diminuir fonte"><i class="fas fa-font"></i>-</button>
+            <button id="toggle-contrast" aria-label="Alternar contraste"><i class="fas fa-adjust"></i></button>
+        </div>
+
+        <!-- Scripts -->
+        <script>
+            // Menu mobile
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+
+            // Dropdown Menu
+            document.querySelectorAll('.dropdown-toggle').forEach(item => {
+                item.addEventListener('click', event => {
+                    if (window.innerWidth > 768) return;
+                    
+                    const dropdownMenu = item.nextElementSibling;
+                    if (!dropdownMenu.classList.contains('active')) {
+                        event.preventDefault();
+                        document.querySelectorAll('.dropdown-menu.active').forEach(openMenu => {
+                            openMenu.classList.remove('active');
+                        });
+                        dropdownMenu.classList.add('active');
+                    } else {
+                        dropdownMenu.classList.remove('active');
+                    }
+                });
+            });
+
+            // Animação dos números
+            function animateNumbers() {
+                document.querySelectorAll('.stat-number').forEach(number => {
+                    const target = parseInt(number.getAttribute('data-value'));
+                    const duration = 2000; // 2 segundos
+                    const increment = target / (duration / 16); // 60fps
+                    let current = 0;
+
+                    const animate = () => {
+                        current += increment;
+                        if (current < target) {
+                            number.textContent = Math.floor(current);
+                            requestAnimationFrame(animate);
+                        } else {
+                            number.textContent = target;
+                        }
+                    };
+
+                    animate();
+                });
             }
-        });
-    });
-  </script>
-</body>
+
+            // Timeline animation
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (entry.target.classList.contains('stat-card')) {
+                            animateNumbers();
+                        }
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.timeline-item-patrocinio, .stat-card').forEach(item => {
+                observer.observe(item);
+            });
+
+            // Accessibility
+            const increaseFontBtn = document.getElementById('increase-font');
+            const decreaseFontBtn = document.getElementById('decrease-font');
+            const toggleContrastBtn = document.getElementById('toggle-contrast');
+            const root = document.documentElement;
+
+            increaseFontBtn.addEventListener('click', () => {
+                let currentSize = parseFloat(getComputedStyle(root).getPropertyValue('--font-size-base'));
+                root.style.setProperty('--font-size-base', (currentSize + 0.1) + 'rem');
+            });
+
+            decreaseFontBtn.addEventListener('click', () => {
+                let currentSize = parseFloat(getComputedStyle(root).getPropertyValue('--font-size-base'));
+                root.style.setProperty('--font-size-base', (currentSize - 0.1) + 'rem');
+            });
+
+            toggleContrastBtn.addEventListener('click', () => {
+                document.body.classList.toggle('high-contrast');
+            });
+
+            // Formulário de Patrocínio
+            document.querySelector('.patrocinador-form').addEventListener('submit', function(e) {
+                const button = this.querySelector('button[type="submit"]');
+                button.classList.add('loading');
+                
+                // Remover a classe loading após o envio (simulando o tempo de processamento)
+                setTimeout(() => {
+                    button.classList.remove('loading');
+                }, 2000);
+            });
+
+            // Validação de telefone em tempo real
+            document.querySelector('input[name="telefone"]').addEventListener('input', function(e) {
+                const value = e.target.value.replace(/\D/g, '');
+                if (value.length >= 10 && value.length <= 11) {
+                    e.target.setCustomValidity('');
+                } else {
+                    e.target.setCustomValidity('Número de telefone inválido');
+                }
+            });
+
+            // Validação de email corporativo
+            document.querySelector('input[name="email"]').addEventListener('input', function(e) {
+                const value = e.target.value.toLowerCase();
+                if (value.includes('@gmail.com') || value.includes('@hotmail.com') || value.includes('@outlook.com')) {
+                    e.target.setCustomValidity('Por favor, utilize seu email corporativo');
+                } else {
+                    e.target.setCustomValidity('');
+                }
+            });
+
+            // Feedback visual nos campos
+            document.querySelectorAll('.form-group input, .form-group textarea, .form-group select').forEach(field => {
+                field.addEventListener('invalid', function(e) {
+                    field.classList.add('invalid');
+                });
+                
+                field.addEventListener('input', function(e) {
+                    if (field.validity.valid) {
+                        field.classList.remove('invalid');
+                    }
+                });
+            });
+        </script>
+    </body>
 </html> 
