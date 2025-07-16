@@ -393,6 +393,73 @@
             </div>
         </section>
 
+        <!-- Números Globais -->
+        <section class="section visible global-numbers">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Startup Weekend em Números</h2>
+                    <p>O Techstars Startup Weekend é o maior programa de startups do mundo desde 2009</p>
+                </div>
+                <div class="global-numbers-grid">
+                    <div class="global-number-item">
+                        <div class="global-number" data-value="700000">700.000+</div>
+                        <div class="global-number-label">Participantes em todo o mundo</div>
+                    </div>
+                    <div class="global-number-item">
+                        <div class="global-number" data-value="9000">9.000+</div>
+                        <div class="global-number-label">Eventos realizados</div>
+                    </div>
+                    <div class="global-number-item">
+                        <div class="global-number" data-value="175">175+</div>
+                        <div class="global-number-label">Países impactados</div>
+                    </div>
+                    <div class="global-number-item">
+                        <div class="global-number" data-value="1850">1.850+</div>
+                        <div class="global-number-label">Cidades alcançadas</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Patrocinadores Globais -->
+        <section class="section visible global-sponsors">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Patrocinadores Globais</h2>
+                    <p>Empresas que impulsionam o Startup Weekend globalmente</p>
+                </div>
+                <div class="global-sponsors-grid">
+                    <div class="global-sponsor-item">
+                        <div class="global-sponsor-logo">
+                            <img src="patrocinadores/GoogleForStartups.png" alt="Google for Startups">
+                        </div>
+                        <div class="global-sponsor-description">
+                            <h4>🚀 Google for Startups</h4>
+                            <p>Parceiro global do Techstars Startup Weekend, o Google Cloud fornece créditos e acesso a ferramentas de validação de mercado para quem está começando.</p>
+                        </div>
+                    </div>
+                    <div class="global-sponsor-item">
+                        <div class="global-sponsor-logo">
+                            <img src="patrocinadores/Brex.png" alt="Brex">
+                        </div>
+                        <div class="global-sponsor-description">
+                            <h4>💳 Brex</h4>
+                            <p>Plataforma financeira pensada para startups e negócios em crescimento. Parceiro global da Techstars, oferece soluções para gestão financeira, cartões corporativos e acesso a benefícios exclusivos para fundadores.</p>
+                        </div>
+                    </div>
+                    <div class="global-sponsor-item">
+                        <div class="global-sponsor-logo">
+                            <img src="patrocinadores/deel.jpg" alt="Deel">
+                        </div>
+                        <div class="global-sponsor-description">
+                            <h4>🧑‍💼 Deel</h4>
+                            <p>Plataforma global de gestão de pessoas e RH para startups que querem crescer e contratar em qualquer lugar do mundo. Parceiro oficial do ecossistema Techstars, conectando inovação com soluções modernas de gestão.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Cotas de Patrocínio -->
         <section class="section visible section-light">
             <div class="container">
@@ -663,6 +730,44 @@
             document.querySelectorAll('.timeline-item-patrocinio, .stat-card').forEach(item => {
                 observer.observe(item);
             });
+
+            // Animação dos números globais
+            function animateGlobalNumbers() {
+                document.querySelectorAll('.global-number').forEach(number => {
+                    const value = number.textContent;
+                    const numericValue = parseInt(value.replace(/\D/g, ''));
+                    const duration = 2000; // 2 segundos
+                    const increment = numericValue / (duration / 16); // 60fps
+                    let current = 0;
+
+                    const animate = () => {
+                        current += increment;
+                        if (current < numericValue) {
+                            number.textContent = Math.floor(current).toLocaleString() + '+';
+                            requestAnimationFrame(animate);
+                        } else {
+                            number.textContent = numericValue.toLocaleString() + '+';
+                        }
+                    };
+
+                    animate();
+                });
+            }
+
+            // Observer para números globais
+            const globalNumbersSection = document.querySelector('.global-numbers');
+            let hasAnimated = false;
+
+            const globalNumbersObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !hasAnimated) {
+                        animateGlobalNumbers();
+                        hasAnimated = true;
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            globalNumbersObserver.observe(globalNumbersSection);
 
             // Accessibility
             const increaseFontBtn = document.getElementById('increase-font');
