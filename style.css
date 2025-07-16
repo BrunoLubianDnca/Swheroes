@@ -2643,14 +2643,16 @@ body.high-contrast .timeline-item::after {
   bottom: -100px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--color-accent-primary);
+  background: linear-gradient(135deg, var(--color-accent-primary), #7B2CBF);
   color: white;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-lg);
   z-index: 1000;
   transition: bottom 0.3s ease-in-out;
   opacity: 0;
+  max-width: 400px;
+  width: 90%;
 }
 
 .toast-message.show {
@@ -2660,13 +2662,31 @@ body.high-contrast .timeline-item::after {
 
 .toast-content {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  align-items: flex-start;
+  gap: 0.75rem;
 }
 
 .toast-content i {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: var(--color-accent-highlight);
+  margin-top: 0.1rem;
+}
+
+.toast-text {
+  flex: 1;
+}
+
+.toast-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  color: var(--color-accent-highlight);
+}
+
+.toast-message-text {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  opacity: 0.95;
 }
 
 /* Form Button Loading State */
@@ -3027,3 +3047,122 @@ body.high-contrast .timeline-item::after {
         height: 30px;
     }
 }
+
+/* --- Bloco especial maior edição --- */
+.maior-edicao {
+  background: linear-gradient(90deg, #6C1AFF 0%, #FF4F8B 100%);
+  color: #fff;
+  text-align: center;
+  padding: 3rem 1rem 2rem 1rem;
+  border-radius: 32px;
+  margin: 2rem 0;
+}
+.stats-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin: 2rem 0 1rem 0;
+}
+.stats-grid div {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.stats-grid i {
+  font-size: 2.2rem;
+  color: #FFD600;
+}
+/* --- Badge de gamificação --- */
+.badge-10-anos {
+  background: #FFD600;
+  color: #6C1AFF;
+  font-weight: 800;
+  border-radius: 24px;
+  padding: 0.5rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.1rem;
+  margin: 1.5rem auto 0 auto;
+  box-shadow: 0 2px 12px rgba(255,79,139,0.12);
+  animation: pop 1.2s;
+}
+.badge-10-anos i {
+  color: #FF4F8B;
+  font-size: 1.3em;
+}
+@keyframes pop {
+  0% { transform: scale(0.7);}
+  60% { transform: scale(1.15);}
+  100% { transform: scale(1);}
+}
+/* --- Feed social --- */
+.feed-social {
+  background: #fff;
+  border-radius: 24px;
+  padding: 2rem 1rem;
+  margin: 2rem 0;
+  box-shadow: 0 2px 16px rgba(108,26,255,0.08);
+  text-align: center;
+}
+.feed-social h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #6C1AFF;
+  margin-bottom: 1.5rem;
+}
+.feed-social iframe {
+  border-radius: 16px;
+}
+/* --- Ripple effect --- */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  transform: scale(0);
+  animation: ripple-effect 0.6s linear;
+  pointer-events: none;
+  width: 40px;
+  height: 40px;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+}
+@keyframes ripple-effect {
+  to { transform: scale(4); opacity: 0; }
+}
+/* --- Dark Mode --- */
+body.dark-mode, .dark-mode .section {
+  background: #18122B !important;
+  color: #fff !important;
+}
+body.dark-mode .maior-edicao {
+  background: linear-gradient(90deg, #2a1857 0%, #6C1AFF 60%, #FF4F8B 100%);
+  color: #fff;
+}
+body.dark-mode .feed-social {
+  background: #221a36;
+  color: #fff;
+}
+body.dark-mode .badge-10-anos {
+  background: #6C1AFF;
+  color: #FFD600;
+}
+body.dark-mode .feed-social h2 {
+  color: #FFD600;
+}
+/* --- Contraste e acessibilidade --- */
+:focus {
+  outline: 2px solid #FFD600;
+  outline-offset: 2px;
+}
+/* --- Responsividade --- */
+@media (max-width: 700px) {
+  .stats-grid {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+}
+/* --- Fim dos incrementos especiais --- */
