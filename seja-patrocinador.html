@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seja um Patrocinador - SW Blumenau 2025</title>
+  <meta name="description" content="Apoie o maior evento de inovação e empreendedorismo de Blumenau e associe sua marca ao futuro.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header/Navegação (Reutilizado do index.html) -->
+  <header class="header">
+    <nav class="nav-container">
+      <div class="nav-brand">
+        <h2>SW Blumenau</h2>
+      </div>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html#home">Home</a></li>
+        <li class="dropdown">
+            <a href="index.html#resumo-9" class="dropdown-toggle">9ª Edição <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="index.html#resumo-9">Destaques</a></li>
+                <li><a href="index.html#timeline-9">Linha do Tempo</a></li>
+                <li><a href="index.html#projetos-premiados-9">Projetos Premiados</a></li>
+                <li><a href="index.html#depoimentos">Depoimentos</a></li>
+                <li><a href="index.html#patrocinadores-9">Patrocinadores</a></li>
+                <li><a href="index.html#mentores-9">Mentores & Jurados</a></li>
+                <li><a href="index.html#equipe-9">Equipe</a></li>
+            </ul>
+        </li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="index.html#expectativa-10">10ª Edição</a></li>
+        <li><a href="seja-patrocinador.html">Seja Patrocinador</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+      </ul>
+      <div class="nav-toggle" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Seção Principal "Seja Patrocinador" -->
+    <section id="seja-patrocinador-hero" class="hero-banner-wrapup" style="padding-top: 10rem; padding-bottom: 8rem;">
+      <div class="container">
+          <div class="hero-wrapup-content">
+              <h1 class="hero-wrapup-title">🚀 Apoie o maior evento de inovação e empreendedorismo de Blumenau</h1>
+              <p class="hero-wrapup-subtitle" style="max-width: 800px; margin: 1rem auto 0;">Startup Weekend Blumenau conecta empreendedores, desenvolvedores e criativos para transformar ideias em negócios. Seja protagonista dessa transformação apoiando o evento e sua comunidade.</p>
+          </div>
+      </div>
+    </section>
+
+    <!-- Seção de Benefícios e Formulário -->
+    <section id="patrocinador-form-section" class="section">
+        <div class="container">
+            <div class="patrocinador-content-grid">
+                <!-- Coluna de Benefícios -->
+                <div class="beneficios-col">
+                    <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
+                        <h2>Benefícios para patrocinadores</h2>
+                        <p>Ao apoiar o Startup Weekend, você não apenas ganha visibilidade, mas investe diretamente no futuro do nosso ecossistema.</p>
+                    </div>
+                    <ul class="beneficios-list">
+                        <li><i class="fas fa-check-circle"></i> <div><h4>Visibilidade de marca</h4><p>Exposição para um evento com grande alcance na cidade e na região.</p></div></li>
+                        <li><i class="fas fa-check-circle"></i> <div><h4>Conexão com talentos</h4><p>Contato direto com talentos e empreendedores do ecossistema.</p></div></li>
+                        <li><i class="fas fa-check-circle"></i> <div><h4>Reconhecimento como apoiador</h4><p>Associe sua marca à inovação e ao desenvolvimento local.</p></div></li>
+                        <li><i class="fas fa-check-circle"></i> <div><h4>Presença em materiais oficiais</h4><p>Seu logotipo no site, redes sociais e nos materiais do evento.</p></div></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna do Formulário -->
+                <div class="form-col">
+                    <div class="form-wrapper">
+                        <h3>Pronto para impactar?</h3>
+                        <p>Preencha o formulário e nossa equipe entrará em contato com as cotas de patrocínio.</p>
+                        <form class="contato-form-geral" action="https://formsubmit.co/brunosocialcreator@gmail.com" method="POST">
+                            <!-- Configurações do FormSubmit -->
+                            <input type="hidden" name="_subject" value="SW Blumenau: Novo Interesse de Patrocínio!">
+                            <input type="hidden" name="_next" value="./obrigado.html">
+                            <input type="hidden" name="_captcha" value="false">
+
+                            <div class="form-group"><input type="text" name="nome" placeholder="Seu nome" required></div>
+                            <div class="form-group"><input type="email" name="email" placeholder="Seu e-mail" required></div>
+                            <div class="form-group"><input type="text" name="empresa" placeholder="Nome da Empresa" required></div>
+                            <div class="form-group"><input type="text" name="cargo" placeholder="Cargo (opcional)"></div>
+                            <div class="form-group"><textarea name="mensagem" placeholder="Mensagem / Observações" rows="3"></textarea></div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Quero ser patrocinador</button>
+                        </form>
+                        <p class="contato-secundario">Ou fale conosco diretamente pelo e-mail: <a href="mailto:blumenausw@gmail.com">blumenausw@gmail.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  </main>
+  
+  <!-- Footer (Reutilizado do index.html) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Startup Weekend Blumenau</h3>
+          <p>Conectando pessoas, ideias e oportunidades no ecossistema de inovação.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/swblumenau/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/company/startup-weekend-blumenau" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Links Rápidos</h4>
+          <ul>
+            <li><a href="index.html#resumo-9">9ª Edição</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="index.html#expectativa-10">10ª Edição</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Startup Weekend Blumenau. Todos os direitos reservados.</p>
+        <p>A 10ª edição está chegando – fique ligado! 🚀</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Script do menu (Reutilizado do index.html)
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      navToggle.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.dropdown-toggle').forEach(item => {
+        item.addEventListener('click', event => {
+            if (window.innerWidth <= 768) {
+              const dropdownMenu = item.nextElementSibling;
+              if (!dropdownMenu.classList.contains('active')) {
+                  event.preventDefault();
+                  document.querySelectorAll('.dropdown-menu.active').forEach(openMenu => {
+                      openMenu.classList.remove('active');
+                  });
+                  dropdownMenu.classList.add('active');
+              } else {
+                   dropdownMenu.classList.remove('active');
+              }
+            }
+        });
+    });
+  </script>
+</body>
+</html> 

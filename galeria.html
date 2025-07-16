@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria - Startup Weekend Blumenau Heroes 2025</title>
+  <meta name="description" content="Galeria oficial da 9ª edição do Startup Weekend Blumenau - Fotos de Sexta, Sábado, Domingo e Premiação">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header/Navegação -->
+  <header class="header">
+    <nav class="nav-container">
+      <div class="nav-brand">
+        <a href="index.html">
+          <h2>SW Blumenau Heroes</h2>
+        </a>
+      </div>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="galeria.html" class="active">Galeria</a></li>
+        <li><a href="programacao.html">Programação</a></li>
+        <li><a href="patrocinadores.html">Patrocinadores</a></li>
+        <li><a href="seja-patrocinador.html">Seja Patrocinador</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+      <div class="nav-toggle" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="pt-20">
+    <!-- Galeria Organizada por Dias -->
+    <section id="galeria" class="py-16 bg-gray-50" data-aos="fade-up">
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-8">Galeria da 9ª Edição</h2>
+        
+        <!-- Abas de Navegação -->
+        <div x-data="{ activeTab: 'sexta' }" class="max-w-4xl mx-auto">
+          <div class="flex flex-wrap justify-center mb-8 bg-white rounded-lg shadow-lg p-2">
+            <button 
+              @click="activeTab = 'sexta'" 
+              :class="activeTab === 'sexta' ? 'bg-purple-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
+              class="px-6 py-3 rounded-lg font-semibold transition-all duration-300 m-1"
+            >
+              📅 Sexta-feira
+            </button>
+            <button 
+              @click="activeTab = 'sabado'" 
+              :class="activeTab === 'sabado' ? 'bg-purple-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
+              class="px-6 py-3 rounded-lg font-semibold transition-all duration-300 m-1"
+            >
+              📅 Sábado
+            </button>
+            <button 
+              @click="activeTab = 'domingo'" 
+              :class="activeTab === 'domingo' ? 'bg-purple-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
+              class="px-6 py-3 rounded-lg font-semibold transition-all duration-300 m-1"
+            >
+              📅 Domingo
+            </button>
+            <button 
+              @click="activeTab = 'premiacao'" 
+              :class="activeTab === 'premiacao' ? 'bg-yellow-500 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
+              class="px-6 py-3 rounded-lg font-semibold transition-all duration-300 m-1 border-2 border-yellow-400"
+            >
+              🏆 Premiação
+            </button>
+          </div>
+
+          <!-- Conteúdo das Abas -->
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <!-- Sexta-feira -->
+            <div x-show="activeTab === 'sexta'" x-transition class="p-6">
+              <h3 class="text-2xl font-bold text-center mb-4 text-purple-700">Sexta-feira - Abertura e Networking</h3>
+              <p class="text-center text-gray-600 mb-6">Credenciamento, apresentação de ideias e formação dos times</p>
+              <div class="galeria-preview">
+                <div class="galeria-stats">
+                  <span class="stat-badge">📸 103 fotos</span>
+                  <span class="stat-badge">👥 150+ participantes</span>
+                </div>
+                <div class="galeria-frame-container">
+                  <iframe 
+                    src="https://us.zonerama.com/SWBlumenauHeroes2025GaleriaOficial/Album/1000285352" 
+                    width="100%" 
+                    height="500" 
+                    frameborder="0" 
+                    scrolling="no"
+                    title="SW Blumenau Heroes - Sexta-feira"
+                    class="galeria-frame"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <div class="galeria-actions">
+                  <a href="https://us.zonerama.com/SWBlumenauHeroes2025GaleriaOficial/Album/1000285352" target="_blank" class="btn btn-outline">
+                    <i class="fas fa-external-link-alt"></i>
+                    Ver Galeria Completa
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sábado -->
+            <div x-show="activeTab === 'sabado'" x-transition class="p-6">
+              <h3 class="text-2xl font-bold text-center mb-4 text-purple-700">Sábado - Desenvolvimento e Mentoria</h3>
+              <p class="text-center text-gray-600 mb-6">Dia intenso de trabalho, validação e desenvolvimento dos projetos</p>
+              <div class="galeria-preview">
+                <div class="galeria-stats">
+                  <span class="stat-badge">📸 82 fotos</span>
+                  <span class="stat-badge">💻 25 times</span>
+                </div>
+                <div class="galeria-frame-container">
+                  <iframe 
+                    src="https://us.zonerama.com/SWBlumenauHeroes2025GaleriaOficial/Album/1000285372" 
+                    width="100%" 
+                    height="500" 
+                    frameborder="0" 
+                    scrolling="no"
+                    title="SW Blumenau Heroes - Sábado"
+                    class="galeria-frame"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <div class="galeria-actions">
+                  <a href="https://us.zonerama.com/SWBlumenauHeroes2025GaleriaOficial/Album/1000285372" target="_blank" class="btn btn-outline">
+                    <i class="fas fa-external-link-alt"></i>
+                    Ver Galeria Completa
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Domingo -->
+            <div x-show="activeTab === 'domingo'" x-transition class="p-6">
+              <h3 class="text-2xl font-bold text-center mb-4 text-purple-700">Domingo - Finalização e Apresentações</h3>
+              <p class="text-center text-gray-600 mb-6">Preparação dos pitches finais e apresentações para os jurados</p>
+              <div class="galeria-preview">
+                <div class="galeria-stats">
+                  <span class="stat-badge">📸 62 fotos</span>
+                  <span class="stat-badge">🎯 30 projetos</span>
+                </div>
+                <div class="galeria-frame-container">
+                  <iframe 
+                    src="https://us.zonerama.com/SWBlumenauHeroes2025GaleriaOficial/Album/1000285356" 
+                    width="100%" 
+                    height="500" 
+                    frameborder="0" 
+                    scrolling="no"
+                    title="SW Blumenau Heroes - Domingo"
+                    class="galeria-frame"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <div class="galeria-actions">
+                  <a href="https://us.zonerama.com/SWBlumenauHeroes2025GaleriaOficial/Album/1000285356" target="_blank" class="btn btn-outline">
+                    <i class="fas fa-external-link-alt"></i>
+                    Ver Galeria Completa
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Premiação -->
+            <div x-show="activeTab === 'premiacao'" x-transition class="p-6">
+              <div class="text-center mb-6">
+                <h3 class="text-3xl font-bold text-yellow-600 mb-2">🏆 Premiação Oficial</h3>
+                <p class="text-lg text-gray-700">O momento mais esperado: conheça os vencedores da 9ª edição!</p>
+              </div>
+              <div class="galeria-preview">
+                <div class="galeria-stats">
+                  <span class="stat-badge">🏆 Premiação</span>
+                  <span class="stat-badge">🎉 Celebração</span>
+                </div>
+                <div class="galeria-frame-container premium">
+                  <iframe 
+                    src="https://us.zonerama.com/SWBlumenauHeroes2025GaleriaOficial/Album/1000285551" 
+                    width="100%" 
+                    height="500" 
+                    frameborder="0" 
+                    scrolling="no"
+                    title="SW Blumenau Heroes - Premiação"
+                    class="galeria-frame"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <div class="galeria-actions">
+                  <a href="https://us.zonerama.com/SWBlumenauHeroes2025GaleriaOficial/Album/1000285551" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-trophy"></i>
+                    Ver Premiação Completa
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <p class="text-gray-600">Navegue pelos álbuns oficiais de cada dia do evento</p>
+          <div class="flex justify-center gap-4 mt-4">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm bg-purple-100 text-purple-800">
+              <span class="w-2 h-2 bg-purple-600 rounded-full mr-2"></span>
+              103 fotos - Sexta
+            </span>
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm bg-purple-100 text-purple-800">
+              <span class="w-2 h-2 bg-purple-600 rounded-full mr-2"></span>
+              82 fotos - Sábado
+            </span>
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm bg-purple-100 text-purple-800">
+              <span class="w-2 h-2 bg-purple-600 rounded-full mr-2"></span>
+              62 fotos - Domingo
+            </span>
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm bg-yellow-100 text-yellow-800">
+              <span class="w-2 h-2 bg-yellow-600 rounded-full mr-2"></span>
+              Premiação
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Startup Weekend Blumenau</h3>
+          <p>Conectando pessoas, ideias e oportunidades no ecossistema de inovação de Blumenau.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Links Rápidos</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="programacao.html">Programação</a></li>
+            <li><a href="patrocinadores.html">Patrocinadores</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Informações</h4>
+          <ul>
+            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="#">Cookies</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Parceiros</h4>
+          <p>Techstars, Google Cloud, ACATE, Sebrae/SC, Premiersoft e todos os nossos apoiadores.</p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 Startup Weekend Blumenau. Todos os direitos reservados.</p>
+        <p>Já foram 9 edições. A 10ª está chegando – fique ligado! 🚀</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Menu mobile
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      navToggle.classList.toggle('active');
+    });
+
+    // Animações ao scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.section, .galeria-preview').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html> 
